@@ -12,6 +12,12 @@ namespace lib
 //       KONSTRUKTORY I DESTRUKTOR
 //
 /////////////////////////////////////////
+Napis::Napis(unsigned size)
+{
+	dlugosc = size;
+	napis = new char[dlugosc + 1];
+}
+
 Napis::Napis(const char* n)
 {
 	dlugosc = strlen(n);
@@ -38,15 +44,8 @@ Napis::~Napis()
 //
 /////////////////////////////////////////
 
-unsigned Napis::Dlugosc()
-{
-	return dlugosc;
-}
-
-unsigned Napis::ZajetaPamiec()
-{ 
-	return sizeof(napis); 
-}
+unsigned Napis::Dlugosc() { return dlugosc; }
+unsigned Napis::ZajetaPamiec() { return sizeof(napis); }
 
 bool Napis::SprawdzCzyPusty()
 {
@@ -60,6 +59,7 @@ bool SprawdzCzyPusty(const Napis& n1)
 	else return false;
 }
 
+void Napis::WstawZamiastZnaku(const Napis& n, int x) { WstawZamiastZnaku(n.napis, x); }
 void Napis::WstawZamiastZnaku(const char* napis, int x)
 {
 	unsigned size = strlen(napis);
@@ -73,11 +73,7 @@ void Napis::WstawZamiastZnaku(const char* napis, int x)
 	this->napis = nowy;
 }
 
-void Napis::WstawZamiastZnaku(const Napis& n, int x) 
-{
-	WstawZamiastZnaku(n.napis, x); 
-}
-
+void Napis::NadpiszNapis(const Napis& n, unsigned x) { NadpiszNapis(n.napis, x); }
 void Napis::NadpiszNapis(const char* napis, unsigned x)
 {
 	unsigned size = strlen(napis);
@@ -98,11 +94,7 @@ void Napis::NadpiszNapis(const char* napis, unsigned x)
 	}
 }
 
-void Napis::NadpiszNapis(const Napis& n, unsigned x) 
-{ 
-	NadpiszNapis(n.napis, x);
-}
-
+void Napis::WstawPrzedZnakiem(const Napis& n, unsigned x) { WstawPrzedZnakiem(n.napis, x); }
 void Napis::WstawPrzedZnakiem(const char* napis, unsigned x)
 {
 	unsigned dlugosc = strlen(napis);
@@ -114,11 +106,6 @@ void Napis::WstawPrzedZnakiem(const char* napis, unsigned x)
 	strcat(nowy, this->napis + x);
 	delete[] this->napis;
 	this->napis = nowy;
-}
-
-void Napis::WstawPrzedZnakiem(const Napis& n, unsigned x)
-{
-	WstawPrzedZnakiem(n.napis, x); 
 }
 
 void Napis::ZamienNapisy(Napis& n1)

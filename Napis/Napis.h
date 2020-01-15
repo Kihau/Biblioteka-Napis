@@ -30,7 +30,7 @@ private:
 	char* napis;
 	unsigned dlugosc{};
 
-	// KONSTRUKTOR KOPIUJACY
+	// Konstruktor kopiujacy
 	Napis(unsigned size);
 
 public:
@@ -181,9 +181,9 @@ public:
 	friend bool operator >= (const Napis& n1, const Napis& n2);
 	friend bool operator < (const Napis& n1, const Napis& n2);
 	friend bool operator <= (const Napis& n1, const Napis& n2);
-	friend Napis operator + (const char* napis, Napis& n2);
 	friend std::ostream& operator << (std::ostream& out, const Napis& n);
 	friend std::istream& operator >> (std::istream& in, Napis& n);
+	friend Napis operator + (const char* napis, Napis& n2);
 	Napis& operator = (const Napis& wzor);
 	Napis& operator = (const char* napis);
 	Napis operator + (const Napis& n2)const;
