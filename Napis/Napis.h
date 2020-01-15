@@ -10,6 +10,7 @@
 	3. Funkcje statyczne przerobibic na friend i wyjebac poza klase
 -----------------------------------------
 */
+
 #pragma once
 
 #define _CRT_SECURE_NO_WARNINGS
