@@ -102,4 +102,12 @@ int main()
 	return 0;
 }
 
+namespace stq
+{
+	int cout()
+	{
+		std::cout << "tetowy ci out!\n";
+	}
+}
+
 
