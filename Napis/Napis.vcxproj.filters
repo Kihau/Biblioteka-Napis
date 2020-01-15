@@ -24,10 +24,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Napis.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NapisInline.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
