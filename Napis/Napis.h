@@ -14,6 +14,8 @@
 #pragma once
 
 #define _CRT_SECURE_NO_WARNINGS
+#define OUTFILE false // gdy true - plik napis.cpp wlaczony 
+
 #include <iostream>
 #include <cmath>
 #include <sstream>
