@@ -1,6 +1,6 @@
 #include"Napis.h"
 
-#define TEST 6
+#define TEST 7
 
 char* TestFunkcja(char* dst, const char* src)
 {
@@ -97,6 +97,21 @@ int main()
 	if (znajdz.SprawdzCzyIstnieje(s))
 		std::cout << "\nNapis znaleziono na pozycji: " << znajdz.ZnajdzWnapisie(s);
 	else std::cout << "\nNie isnieje w napisie\n";
+
+#elif TEST == 7
+
+	Napis test1 = "testnapis";
+	Napis test2 = "";
+
+	if (test1.SprawdzCzyPusty()) std::cout << "PUSTY\n";
+	else std::cout << "NIE PUSTY\n";
+
+	if (test2.SprawdzCzyPusty()) std::cout << "PUSTY\n";
+	else std::cout << "NIE PUSTY\n";
+
+	test1 = "";
+	if (test1.SprawdzCzyPusty()) std::cout << "PUSTY\n";
+	else std::cout << "NIE PUSTY\n";
 
 #endif
 	return 0;

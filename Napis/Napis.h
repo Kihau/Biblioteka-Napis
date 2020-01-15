@@ -5,7 +5,9 @@
 /*
 ------------------------------------------
 				TO DO: 
-	1. SPECJALNY NAMESPACE DAL FUNKCJI STATYCZNYCH
+	1. Utworzyc specjalny namespace dla funkcji z poza klasy np( ns,nap - od napis, ext - od external )
+	2. Wyrzucic metody poza klase a sama klase trzymac jako spis funkcji
+	3. Funkcje statyczne przerobibic na friend i wyjebac poza klase
 -----------------------------------------
 */
 #pragma once
@@ -20,7 +22,7 @@ class Napis
 private:
 	char* napis;
 	unsigned dlugosc{};
-	
+
 	// KONSTRUKTOR KOPIUJACY
 	Napis(unsigned size)
 	{
@@ -63,9 +65,23 @@ public:
 	/////////////////////////////////////////
 
 	// Funkcja zwracajaca dlugosc napisu
-	unsigned Dlugosc()
+	unsigned Dlugosc() { return dlugosc; }
+
+	// Funkcja zwracajaca ilosc zajetej pamieci przez napis
+	unsigned ZajetaPamiec() { return sizeof(napis); }
+
+	// Funkcja sprawdzajaca czy napis jest pusty
+	bool SprawdzCzyPusty()
 	{
-		return dlugosc;
+		if (dlugosc == NULL) return true;
+		else return false;
+	}
+
+	// Statyczna funkcja sprawdzajaca czy napis jest pusty
+	static bool SprawdzCzyPusty(const Napis& n1)
+	{
+		if (n1.dlugosc == NULL) return true;
+		else return false;
 	}
 
 	// Funkcja zastepujaca wybrany znak podanym napisem
@@ -83,10 +99,7 @@ public:
 	}
 
 	// Funkcja zastepujaca wybrany znak podanym napisem
-	void WstawZamiastZnaku(const Napis& n, int x = 0)
-	{
-		WstawZamiastZnaku(n.napis, x);
-	}
+	void WstawZamiastZnaku(const Napis& n, int x = 0) { WstawZamiastZnaku(n.napis, x); }
 
 	// Funkcja zastepujaca wszytkie kolejne znaki podanym napisem
 	void NadpiszNapis(const char* napis, unsigned x = 0)
@@ -110,10 +123,7 @@ public:
 	}
 
 	// Funkcja zastepujaca wszytkie kolejne znaki podanym napisem
-	void NadpiszNapis(const Napis& n, unsigned x = 0)
-	{
-		NadpiszNapis(n.napis, x);
-	}
+	void NadpiszNapis(const Napis& n, unsigned x = 0) { NadpiszNapis(n.napis, x); }
 
 	// Funkcja wstawiajaca tekst przed wybranym znakiem napisu
 	void WstawPrzedZnakiem(const char* napis, unsigned x = 0)
@@ -130,11 +140,7 @@ public:
 	}
 
 	// Funkcja wstawiajaca tekst przed wybranym znakiem napisu
-	void WstawPrzedZnakiem(const Napis& n, unsigned x = 0)
-	{
-		WstawPrzedZnakiem(n.napis, x);
-	}
-
+	void WstawPrzedZnakiem(const Napis& n, unsigned x = 0) { WstawPrzedZnakiem(n.napis, x); }
 
 	// Funkcja zamieniajaca ze soba napisy (dziala na zasadzie swap)
 	void ZamienNapisy(Napis& n1)
@@ -279,12 +285,6 @@ public:
 		//unsigned substringLength = dlugosc - index;
 		return index;
 	}
-
-	/*
-	---------------------
-		WYKONAÆ TESTY 
-	---------------------
-	*/
 
 	// Funkcja zwracajaca wybrany fragment z napisu
 	// x - index poczatkowy napisu, dl - jak dlugi ma byc podnapis
