@@ -1,4 +1,3 @@
-
 #include"Napis.h"
 
 #define TEST 6
