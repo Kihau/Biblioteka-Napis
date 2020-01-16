@@ -1,17 +1,13 @@
-#include "Napis.h"
+#include "NapisOutfile.h"
 
 #if OUTFILE
 
-namespace lib
-{
-	/* ZEBRAC FRIEND FUNKCJE TU */
-}
+	/////////////////////////////////////////
+	//
+	//       KONSTRUKTORY I DESTRUKTOR
+	//
+	/////////////////////////////////////////
 
-/////////////////////////////////////////
-//
-//       KONSTRUKTORY I DESTRUKTOR
-//
-/////////////////////////////////////////
 Napis::Napis(unsigned size)
 {
 	dlugosc = size;
@@ -38,11 +34,11 @@ Napis::~Napis()
 	delete[] napis;
 }
 
-/////////////////////////////////////////
-//
-//		NIEOKRESLONE FUNKCJE KLASY
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//      NIEOKRESLONE FUNKCJE KLASY
+	//
+	/////////////////////////////////////////
 
 unsigned Napis::Dlugosc() { return dlugosc; }
 unsigned Napis::ZajetaPamiec() { return sizeof(napis); }
@@ -158,11 +154,11 @@ void Napis::ZamienNaDuzeWszystko()
 	}
 }
 
-/////////////////////////////////////////
-//
-//		FUNKCJE KONWERTUJACE NAPIS
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//      FUNKCJE KONWERTUJACE NAPIS
+	//
+	/////////////////////////////////////////
 
 template <typename T>
 static Napis KonwertujNaNapis(T zmienna)
@@ -192,12 +188,12 @@ float Napis::NapisNaFloat() { return static_cast<float>(atof(this->napis)); }
 int Napis::NapisNaInt() { return atoi(this->napis); }
 unsigned Napis::NapisNaUnsigned() { return static_cast<unsigned>(atoi(this->napis)); }
 
-/////////////////////////////////////////
-//
-//	 FUNKCJE SZUKAJACE ORAZ DZIALAJACE
-//	 NA FRAGMANTACH(PRZEDZIALACH) NAPISU
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//	 FUNKCJE SZUKAJACE ORAZ DZIALAJACE
+	//	 NA FRAGMANTACH(PRZEDZIALACH) NAPISU
+	//
+	/////////////////////////////////////////
 
 bool Napis::SprawdzCzyIstnieje(const Napis& szukany)
 {
@@ -268,12 +264,12 @@ void Napis::UsunZnapisu(unsigned x, unsigned dl)
 	}
 }
 
-/////////////////////////////////////////
-//
-//		OPERATORY ==, != i FUNKCJE
-//		SPRAWDZAJACE ROWNOSC TABLIC 	
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//      OPERATORY ==, != i FUNKCJE
+	//      SPRAWDZAJACE ROWNOSC TABLIC 	
+	//
+	/////////////////////////////////////////
 
 bool operator == (const Napis& n1, const Napis& n2)
 {
@@ -305,12 +301,12 @@ bool SprawdzRownosc(const Napis& n1, const Napis& n2)
 	else return false;
 }
 
-/////////////////////////////////////////
-//
-//	  OPERATORY >, >=, <, <= i FUNKCJE
-//	  POROWNOJACE TABLICE	
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//	  OPERATORY >, >=, <, <= i FUNKCJE
+	//	  POROWNOJACE TABLICE	
+	//
+	/////////////////////////////////////////
 
 bool operator > (const Napis& n1, const Napis& n2)
 {
@@ -360,11 +356,11 @@ Napis& ZwrocMniejszy(Napis& n1, Napis& n2)
 	else return n2;
 }
 
-/////////////////////////////////////////
-//
-//    OPERATORY = NADPISUJACE TABLICE
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//    OPERATORY = NADPISUJACE TABLICE
+	//
+	/////////////////////////////////////////
 
 Napis& Napis::operator = (const Napis& wzor)
 {
@@ -388,11 +384,11 @@ Napis& Napis::operator = (const char* napis)
 	return *this;
 }
 
-/////////////////////////////////////////
-//
-//     OPERATORY + DODAJACE TABLICE
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//     OPERATORY + DODAJACE TABLICE
+	//
+	/////////////////////////////////////////
 
 Napis Napis::operator + (const Napis& n2)const
 {
@@ -411,11 +407,11 @@ Napis operator + (const char* napis, Napis& n2)
 	return dodane;
 }
 
-/////////////////////////////////////////
-//
-//   OPERATORY += DOPISUJACE DO TABLICY
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//   OPERATORY += DOPISUJACE DO TABLICY
+	//
+	/////////////////////////////////////////
 
 Napis& Napis::operator += (const Napis& n2)
 {
@@ -445,11 +441,11 @@ Napis& Napis::operator += (const char* napis)
 	return *this;
 }
 
-/////////////////////////////////////////
-//
-//      OPERATORY WYJSCIA i WEJSCIA
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//      OPERATORY WYJSCIA i WEJSCIA
+	//
+	/////////////////////////////////////////
 
 std::ostream& operator << (std::ostream& out, const Napis& n)
 {
@@ -472,11 +468,11 @@ std::istream& operator >> (std::istream& in, Napis& n)
 	return in;
 }
 
-/////////////////////////////////////////
-//
-//		 OPERATORY PRZESUWAJACE
-//
-/////////////////////////////////////////		
+	/////////////////////////////////////////
+	//
+	//       OPERATORY PRZESUWAJACE
+	//
+	/////////////////////////////////////////		
 
 Napis::Napis(Napis&& wzor) noexcept
 {
@@ -495,12 +491,12 @@ Napis& Napis::operator = (Napis&& wzor) noexcept
 	return *this;
 }
 
-/////////////////////////////////////////
-//
-//   OPERATOR [] i FUNKCJA ODWOLUJACA
-//   SIE DO DANEGO MIEJSCA W TABLICY
-//
-/////////////////////////////////////////
+	/////////////////////////////////////////
+	//
+	//   OPERATOR [] i FUNKCJA ODWOLUJACA
+	//   SIE DO DANEGO MIEJSCA W TABLICY
+	//
+	/////////////////////////////////////////
 
 char& Napis::operator [] (unsigned x)
 {

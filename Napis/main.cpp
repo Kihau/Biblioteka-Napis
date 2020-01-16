@@ -113,6 +113,8 @@ int main()
 	if (test1.SprawdzCzyPusty()) std::cout << "PUSTY\n";
 	else std::cout << "NIE PUSTY\n";
 
+	//test1.zmienna;
+
 #endif
 	return 0;
 }

@@ -139,11 +139,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Napis.cpp" />
+    <ClCompile Include="NapisOutfile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Napis.h" />
-    <ClInclude Include="NapisInline.h" />
+    <ClInclude Include="NapisOutfile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
